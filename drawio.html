@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <style media="screen">
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: Arial, Georgia, Helvetica, Comic Sans MS;
+    }
+    #my-canvas {
+      background-color: #d3d3d3;
+      box-shadow: 1px 1px 1px;
+      margin: 0 auto;
+      display: block;
+    }
+    .icon {
+      position: relative;
+      display: inline-block;
+      font-size: 4em;
+      float: right;
+      width: 100px;
+      top: 15px;
+      transition: color .5s;
+      margin-right: 30px;
+    }
+    .container {
+      padding: 20px;
+    }
+    .icon:hover {
+      color: orange;
+      cursor: pointer;
+    }
+
+    .icon.selected {
+      color: yellow;
+    }
+    .navbar {
+      height: 100px;
+      background-color: rgba(50, 100, 200, 0.5);
+      border-bottom: solid rgba(50, 100, 200, 1);
+    }
+    .text-control {
+      display: none;
+      width: 250px;
+      height: 50px;
+      font-size: 30px;
+    }
+    #text-select, #line-width-selection, #color-selection, #buttons {
+      position: relative;
+      display: inline-block;
+      float: right;
+      margin-right: 90px;
+    }
+    .display-button {
+      display: none;
+      position: relative;
+      left: 100px;
+      width: 50px;
+      height: 50px;
+    }
+    .icon-1 {
+      position: relative;
+      display: inline-block;
+      font-size: 1.2em;
+      float: right;
+      padding: 0.5em;
+    }
+    select option {
+      margin: 40px;
+    }
+    select option[value="black"] {
+        background: rgb(0,0,0);
+    }
+    select option[value="yellow"] {
+        background: rgba(100, 100, 100, 0.3);
+    }
+    select option[value="red"] {
+        background: rgb(255,0,0);
+    }
+    select option[value="green"] {
+        background: rgb(0,255,0);
+    }
+    select option[value="blue"] {
+        background: rgba(200, 200, 200, 0.3);
+    }
+    select option[value="pink"] {
+        background: rgb(255, 105, 180);
+    }
+    select option[value="grey"] {
+        background: rgb(128,128,128);
+    }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="icon" data-shape="rectangle">
+          <i class="fa fa-square-o" aria-hidden="true"></i>
+      </div>
+      <div class="icon" data-shape="circle">
+        <i class="fa fa-circle-o" aria-hidden="true"></i>
+      </div>
+      <div class="icon" data-shape="line">
+        <i class="fa fa-line-chart" aria-hidden="true"></i>
+      </div>
+      <div class="icon selected" data-shape="pencil">
+        <i class="fa fa-pencil" aria-hidden="true"></i>
+      </div>
+      <div class="icon" data-shape="text">
+        <i class="fa fa-font" aria-hidden="true"></i>
+      </div>
+    </nav>
+
+    <input type="text" id="text-box" class="text-control"/>
+    <button type="submit" class="display-button" id="display-button">Display!</button>
+
+    <form id="text-form">
+      <input type="text" id="text-box" class="text-control"/>
+    </form>
+
+    <form id="text-select">
+    	<div class="form-group">
+    		<label for="font">Font</label>
+    			<select id="font">
+    				<option value="Arial">Arial</option>
+            <option value="Comic Sans MS">Comic Sans</option>
+            <option value="Georgia">Georgia</option>
+    				<option value="Helvetica">Helvetica</option>
+    			</select>
+    	</div>
+    </form>
+
+    <form id="line-width-selection">
+				<div class="form-group">
+					<label for="line-width">Line width</label>
+					  <select id="line-width">
+							<option value="1">1 px</option>
+							<option value="3">3 px</option>
+							<option value="5">5 px</option>
+              <option value="10">10 px</option>
+						</select>
+				</div>
+		</form>
+
+    <form id="color-selection">
+        <div class="form-group">
+          <label for="color-select">Choose color</label>
+            <select id="color-select">
+              <option class="black" value="black" selected="selected">Black</option>
+              <option class="yellow" value="yellow">Yellow</option>
+              <option class="red" value="red">Red</option>
+              <option class="blue" value="green">Green</option>
+              <option class="blue" value="blue">Blue</option>
+              <option class="pink" value="pink">Pink</option>
+              <option class="grey" value="grey">Grey</option>
+            </select>
+        </div>
+    </form>
+
+    <form id="buttons">
+      <div class="icon-1" id="undo-button">
+        <i class="fa fa-undo" aria-hidden="true"></i>
+      </div>
+      <div class="icon-1" id="redo-button">
+        <i class="fa fa-repeat" aria-hidden="true"></i>
+      </div>
+      <div class="icon-1" id="move-shape">
+        <i class="fa fa-hand-grab-o" aria-hidden="true"></i>
+      </div>
+    </form>
+
+    <div class="container">
+      <canvas id="my-canvas" width="1100" height="600">
+        Canvas is not supported!
+      </canvas>
+    </div>
+
+  </div>
+      <script src="drawio.js" charset="utf-8"></script>
+      <script src="shapes.js" charset="utf-8"></script>
+    </body>
+</html>

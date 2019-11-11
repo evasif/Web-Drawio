@@ -1,0 +1,97 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Georgia, Helvetica, Comic Sans MS;
+}
+#my-canvas {
+  background-color: #d3d3d3;
+  box-shadow: 1px 1px 1px;
+  margin: 0 auto;
+  display: block;
+}
+.icon {
+  position: relative;
+  display: inline-block;
+  font-size: 4em;
+  float: right;
+  width: 100px;
+  top: 15px;
+  transition: color .5s;
+  margin-right: 30px;
+}
+.container {
+  padding: 20px;
+}
+.icon:hover {
+  color: orange;
+  cursor: pointer;
+}
+
+.icon.selected {
+  color: yellow;
+}
+.navbar {
+  height: 100px;
+  background-color: rgba(50, 100, 200, 0.5);
+  border-bottom: solid rgba(50, 100, 200, 1);
+}
+
+.text-control {
+  display: none;
+  width: 250px;
+  height: 50px;
+  font-size: 30px;
+}
+#text-select, #line-width-selection, #color-selection, #buttons {
+  position: relative;
+  display: inline-block;
+  float: right;
+  margin-right: 90px;
+}
+.display-button {
+  display: none;
+  position: relative;
+  left: 100px;
+  width: 50px;
+  height: 50px;
+}
+.yellow {
+  background-color: #33CC33;
+}
+
+.icon-1 {
+  position: relative;
+  display: inline-block;
+  font-size: 1.2em;
+  float: right;
+  padding: 0.5em;
+
+}
+
+select option {
+  margin: 40px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+select option[value="black"] { /* value not val */
+    background: rgb(0,0,0);
+}
+select option[value="yellow"] { /* value not val */
+    background: rgba(100, 100, 100, 0.3);
+}
+select option[value="red"] { /* value not val */
+    background: rgb(255,0,0);
+}
+select option[value="green"] { /* value not val */
+    background: rgb(0,255,0);
+}
+select option[value="blue"] { /* value not val */
+    background: rgba(200, 200, 200, 0.3);
+}
+select option[value="pink"] { /* value not val */
+    background: rgb(255, 105, 180);
+}
+select option[value="grey"] { /* value not val */
+    background: rgb(128,128,128);
+}
